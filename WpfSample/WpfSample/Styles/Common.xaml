@@ -1,0 +1,70 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="ColorBackgroundNavigation">#799540</Color>
+
+    <!--Colors-->
+    <Color x:Key="ColorPrimary1">#8FBDD3</Color>
+    <Color x:Key="ColorPrimary2">#BE8C63</Color>
+    <Color x:Key="ColorPrimary3">#E4D1B9</Color>
+
+
+    <!--Brushes-->
+    <SolidColorBrush x:Key="BrushPrimary1" Color="{StaticResource ColorPrimary1}"/>
+    <SolidColorBrush x:Key="BrushPrimary2" Color="{StaticResource ColorPrimary2}"/>
+    <SolidColorBrush x:Key="BrushPrimary3" Color="{StaticResource ColorPrimary3}"/>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="LabelStyle" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    
+    <Style x:Key="NavButton" TargetType="RadioButton">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="10 5"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid x:Name="gridMain" Background="{TemplateBinding Background}">
+                        <TextBlock Text="{TemplateBinding Content}" 
+                                   Padding="{TemplateBinding Padding}" FontSize="18"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="{StaticResource BrushPrimary2}" TargetName="gridMain"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation To="{StaticResource ColorPrimary2}" Duration="0:0:0.1" Storyboard.TargetProperty="Background.Color"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation To="{StaticResource ColorPrimary1}" Duration="0:0:0.1" Storyboard.TargetProperty="Background.Color"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

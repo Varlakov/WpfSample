@@ -1,0 +1,40 @@
+﻿<UserControl xmlns:Views="clr-namespace:WpfSample.Core.Views;assembly=WpfSample.Core"  
+             x:Class="WpfSample.Modules.Equipments.Views.EquipmentsListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfSample.Modules.Equipments.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="0" VerticalAlignment="Stretch"
+                  ItemsSource="{Binding Equipments}" 
+                  SelectedItem="{Binding SelectedEquipment, Mode=TwoWay}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Identifier" DisplayMemberBinding="{Binding Id}" Width="70" />
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" />
+                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" />
+                    <GridViewColumn Header="Created" DisplayMemberBinding="{Binding CreatedOn, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Width="120" />
+                    <GridViewColumn Header="Created by" DisplayMemberBinding="{Binding CreatedBy}" Width="100" />
+                    <GridViewColumn Header="Last modified" DisplayMemberBinding="{Binding LastModifiedOn, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Width="120" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Views:PaginationView Grid.Row="1" DataContext="{Binding PaginationViewModel}" 
+                              HorizontalAlignment="Center" Margin="0,10"/>
+
+        <local:EquipmentView DataContext="{Binding SelectedEquipment}" Grid.Row="2" />
+    </Grid>
+</UserControl>

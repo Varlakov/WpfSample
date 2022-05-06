@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="WpfSample.Modules.Equipments.Views.EquipmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Id:" Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelStyle}" />
+        <TextBlock Text="{Binding Id}" Grid.Column="1" Grid.Row="0" />
+
+        <TextBlock Text="Name:" Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="1" />
+
+        <TextBlock Text="Created:" Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding CreatedOn, StringFormat={}{0:dd.MM.yyyy HH:mm:ss}}" Grid.Column="1" Grid.Row="2" />
+
+        <TextBlock Text="Created by:" Grid.Column="0" Grid.Row="3" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding CreatedBy}" Grid.Column="1" Grid.Row="3" />
+
+        <TextBlock Text="Last modified:" Grid.Column="3" Grid.Row="0" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding LastModifiedOn, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Grid.Column="4" Grid.Row="0" />
+
+        <TextBlock Text="Type:" Grid.Column="3" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding Type}" Grid.Column="4" Grid.Row="1" />
+        
+        <TextBlock Text="Quantity:" Grid.Column="3" Grid.Row="2" Style="{StaticResource LabelStyle}"/>
+        <TextBlock Text="{Binding Quantity}" Grid.Column="4" Grid.Row="2" />
+    </Grid>
+</UserControl>

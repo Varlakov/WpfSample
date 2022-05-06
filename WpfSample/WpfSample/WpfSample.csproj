@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.4" />
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\WpfSample.Data\WpfSample.Data.csproj" />
+    <ProjectReference Include="..\WpfSample.Core\WpfSample.Core.csproj" />
+    <ProjectReference Include="..\Modules\WpfSample.Modules.Activities\WpfSample.Modules.Activities.csproj" />
+	<ProjectReference Include="..\Modules\WpfSample.Modules.Equipments\WpfSample.Modules.Equipments.csproj" />
+    <ProjectReference Include="..\Services\WpfSample.Services.Interfaces\WpfSample.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\Services\WpfSample.Services\WpfSample.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Styles\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\WpfSample.Services.Interfaces\WpfSample.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\..\WpfSample.Core\WpfSample.Core.csproj" />
+  </ItemGroup>
+</Project>

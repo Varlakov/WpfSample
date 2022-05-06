@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WpfSample.Modules.Activities.Views.CreateActivityView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="10"/>
+                <RowDefinition/>
+                <RowDefinition Height="10"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Create new activity" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" />
+
+            <TextBlock Text="Name:" Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelStyle}" />
+            <TextBox Text="{Binding Activity.Name, UpdateSourceTrigger=PropertyChanged,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Grid.Column="1" Grid.Row="2"/>
+
+            <TextBlock Text="Created by:" Grid.Column="0" Grid.Row="4" Style="{StaticResource LabelStyle}" />
+            <TextBox Text="{Binding Activity.CreatedBy, UpdateSourceTrigger=PropertyChanged,
+                        ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Grid.Column="1" Grid.Row="4" />
+            
+            <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Cancel" Margin="5" Width="70" Command="{Binding CancelCommand}"/>
+                <Button Content="Ok" Margin="5" Width="70" Command="{Binding SaveCommand}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
